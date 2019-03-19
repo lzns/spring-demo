@@ -27,7 +27,9 @@ public class CxfConfig {
 
     @Bean
     public Endpoint endpoint() {
+
         //本地修改
+
         //云端修改
         EndpointImpl endpoint = new EndpointImpl(bus, webServiceTest);
         endpoint.publish("/user");
