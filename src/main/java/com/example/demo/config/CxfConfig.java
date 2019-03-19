@@ -29,6 +29,7 @@ public class CxfConfig {
     public Endpoint endpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, webServiceTest);
         endpoint.publish("/user");
+        System.out.println("你Ian是打发第三方");
         return endpoint;
     }
 }
