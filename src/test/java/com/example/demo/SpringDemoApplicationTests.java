@@ -16,11 +16,13 @@ public class SpringDemoApplicationTests {
     }
     @Test
     public void test2() {
+
         System.out.print("你是不是个傻子");
     }
     @Test
     public void test3() {
         System.out.println("我就是测试试试！！！");
+
     }
     @Test
     public void test() {
