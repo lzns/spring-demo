@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>thymeleaf模板测试</title>
+</head>
+<script type="text/javascript" th:inline="javascript">
+/*<![CDATA[*/
+    var time = /*[[${user.name}]]*/ '张伟';
+   // alert(time);
+
+/*]]*/
+</script>
+<body>
+    <h1>欢迎小老弟来了</h1>
+            <h2> 姓名：<span th:text=${user.name}></span></h2> <!-- 变量表达式  ${}-->
+            <h2> 姓名：<span th:text=${session.user.name}></span></h2> <!-- 变量表达式  ${}-->
+    <h2> id：<span th:text=${user.id}></span></h2>
+    
+    <div th:object="${session.user}"> 
+	    <p>Name: <span th:text="*{name}">Sebastian</span>.</p>   <!-- 选择变量表达式：*{ }  -->
+	    <p>Surname: <span th:text="*{id}">Pepper</span>.</p> 
+	    <p>Nationality: <span th:text="*{name}">Saturn</span>.</p>
+    </div> 
+    Established locale country: <span th:text="${#locale.country}">US</span><br/>
+    <hr>
+    <a  href="http://www.baidu.com" th:href="@{/thymeleaf/test(id=2,ppm=${user.id})}" >点击刷新</a>  <!--@{} 是链接表达式的写法  --> <br/>
+    
+    <p>测试文本：<span th:text="'这是个/\测/\试a!!!'">测试</span></p>
+    <p>测试数值型的操作：<span th:text="2013+15">88</span></p>
+    <div th:if="${session.isShow} == true">
+        <a  href="http://www.baidu.com" th:href = "@{/thymeleaf/test}">去哪里</a>
+    </div>
+    <div th:if="${isShow} == null">
+        <a  href="http://www.baidu.com" th:href = "@{/thymeleaf/test}">去哪里</a>
+    </div>
+    <!-- 文本连接示例 -->
+    <p>文本连接示例：<span th:text="'欢迎你的到来'+${user.name}"></span></p>
+    <p>文本连接示例：<span th:text="|欢迎${user.name}你的到来|"></span></p>
+    
+    <div th:if="${session.age} gt 10">
+        <p>演示比较大小<span th:text="|我的年龄是：${session.age}|"></span></p>
+    </div>  
+    <form action="" th:action="@{/user/getAllUser}" >
+        <input name = "name" th:value="'张胜男'"  value= "测试"/>
+        <button type = "submit" >提交试试</button>
+    </form>
+    <hr/>
+    
+    <table border="1" cellspacing= "0">
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            
+<!--             <td th:text="${user.createDate}"></td> -->
+            <td th:text="${#dates.format(user.createDate,'yyyy-MM-dd')}"></td>
+            <td th:text="${#dates.format(user.updateDate,'yyyy-MM-dd HH:mm:ss')}"></td>
+        </tr>
+    </table>
+    
+    <!--/*/
+		<div>
+		  you can see me only before thymeleaf processes me!
+		</div>
+   /*/-->
+    
+    <p th:inline="text">欢迎 [[${user.name}]]的光临！！！</p>
+    
+    <div th:include="footer :: foot" th:if="${isShow} == null"></div>
+    
+    <div th:replace="footer :: foot"></div>
+    
+    
+    <div th:include="footer :: but(${user.name},${user.id})"></div>
+    
+    <div th:replace="footer :: but(${#locale.country},${#locale.country})"></div>
+    
+    
+</body>
+</html>

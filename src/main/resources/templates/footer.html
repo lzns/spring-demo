@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="foot">
+        <h1>这个是个底部</h1>
+    </div>
+    
+    <footer th:fragment="but(var1,var2)">
+        <h2>这是footer底部</h2>
+        <h2><span th:text="|${var1},${var2}|"></span></h2>
+    </footer>
+</body>
+</html>
