@@ -20,6 +20,11 @@ public class SpringDemoApplicationTests {
         System.out.print("你是不是个傻子");
     }
     @Test
+    public void test5() {
+        
+        System.out.print("你是不是个傻子");
+    }
+    @Test
     public void test3() {
         System.out.println("我就是测试试试！！！");
 
