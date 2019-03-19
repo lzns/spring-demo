@@ -28,6 +28,7 @@ public class CxfConfig {
     @Bean
     public Endpoint endpoint() {
 //      我是eclispe
+        //我是github
         EndpointImpl endpoint = new EndpointImpl(bus, webServiceTest);
         endpoint.publish("/user");
         System.out.println("你Ian是打发第三方");
