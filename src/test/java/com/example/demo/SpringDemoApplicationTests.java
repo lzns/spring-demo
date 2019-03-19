@@ -14,7 +14,10 @@ public class SpringDemoApplicationTests {
     @Test
     public void contextLoads() {
     }
-
+    @Test
+    public void test2() {
+        System.print.out("你是不是个傻子");
+    }
     @Test
     public void test() {
         // 创建动态客户端
