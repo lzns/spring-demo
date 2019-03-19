@@ -27,6 +27,7 @@ public class CxfConfig {
 
     @Bean
     public Endpoint endpoint() {
+        //云端修改
         EndpointImpl endpoint = new EndpointImpl(bus, webServiceTest);
         endpoint.publish("/user");
         System.out.println("你Ian是打发第三方");
