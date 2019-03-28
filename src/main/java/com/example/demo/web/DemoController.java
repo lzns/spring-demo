@@ -12,6 +12,7 @@ public class DemoController {
     @ResponseBody
     public String hello() {
         System.out.println("访问到了！！！！");
+        System.out.println();
         return "hell springboot!";
     } 
 }
