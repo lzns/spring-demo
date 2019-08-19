@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>这是WEB-INF下面的moreUpload.jsp,访问成功了！！！</h1>
-    <form action="/file/uploadFiles" enctype="multipart/form-data" method="post">
+    <form action="/testAudio/test1" enctype="multipart/form-data" method="post">
         <input type = 'file' name = "fileName">
         <input type = 'file' name = "fileName">
         <input type = 'file' name = "fileName">

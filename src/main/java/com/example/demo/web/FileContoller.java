@@ -44,11 +44,12 @@ public class FileContoller {
     //多文件上传
     @RequestMapping("/uploadFiles")
     @ResponseBody
-    public String uploadFiles(MultipartHttpServletRequest request) {
+    public String uploadFiles(MultipartHttpServletRequest request) throws IOException {
         List<MultipartFile> files = request.getFiles("fileName");
         for (MultipartFile multipartFile : files) {
             String fileName = multipartFile.getOriginalFilename();
             long fileSize = multipartFile.getSize();
+            byte[] ll = multipartFile.getBytes();
             System.out.println("文件的名称："+fileName+"----文件的大小："+fileSize);
         }
         return "上传成功！！！";
