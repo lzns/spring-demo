@@ -18,9 +18,9 @@ import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
 
-import com.shankephone.mi.util.DataSwitch;
-import com.shankephone.mi.util.FilePath;
-import com.shankephone.mi.util.StringUtils;
+//import com.shankephone.mi.util.DataSwitch;
+//import com.shankephone.mi.util.FilePath;
+//import com.shankephone.mi.util.StringUtils;
 
 /**
  * 
@@ -33,7 +33,7 @@ public class ExcelHandlerUtil {
     
     public static String exportExcel(String title,boolean isHaveNum, int rows ,String type ,List<Map<String, Object>> list) throws Exception {
 
-        String filePath = FilePath.getImportExcelPath() + UUID.randomUUID().toString() + "tmp.xls";
+        String filePath = "";//FilePath.getImportExcelPath() + UUID.randomUUID().toString() + "tmp.xls";
         File file = new File(filePath);
         if (!file.exists()) {
             file.getParentFile().mkdirs();
@@ -65,7 +65,7 @@ public class ExcelHandlerUtil {
                 if (type.equals(titleEnum.getKey())) {
                     rowNum = titleEnum.getRowNum();
                     Row row = sheet.createRow(rowNum);
-                    if (StringUtils.isNotEmpty(title)) {
+                    if (true/*StringUtils.isNotEmpty(title)*/) {
                         titleEnum.setName(title);
                     }
                     row.setHeight(titleEnum.getHeigth());
@@ -127,12 +127,12 @@ public class ExcelHandlerUtil {
                     }
                     for (FirstTitleEnum firstTitleEnum : values2) {
                         if (type.equals(firstTitleEnum.getType()) && t.containsKey(firstTitleEnum.getKey())) {
-                            createCell(wb,false,null,sheet,row4,firstTitleEnum.getColumn(),cellStyle3,DataSwitch.convertObjectToString(t.get(firstTitleEnum.getKey()))); 
+                            createCell(wb,false,null,sheet,row4,firstTitleEnum.getColumn(),cellStyle3,""/*DataSwitch.convertObjectToString(t.get(firstTitleEnum.getKey()))*/); 
                         }
                     }
                     for (SecondTitleEnum secondTitleEnum : values3) {
                         if (type.equals(secondTitleEnum.getType()) && t.containsKey(secondTitleEnum.getKey())) {
-                            createCell(wb,false,null,sheet,row4,secondTitleEnum.getColumn(),cellStyle3,DataSwitch.convertObjectToString(t.get(secondTitleEnum.getKey())));
+                            createCell(wb,false,null,sheet,row4,secondTitleEnum.getColumn(),cellStyle3,""/*DataSwitch.convertObjectToString(t.get(secondTitleEnum.getKey()))*/);
                         }
                     }    
                 }
